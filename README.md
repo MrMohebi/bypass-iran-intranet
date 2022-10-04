@@ -9,7 +9,7 @@ we consider iran server IP is: ```103.130.0.10```
 
 european IP: ```102.128.0.20```
 
-also iran and europe port is: ```2424```
+also iran and europe both ports is: ```2424```
 
 ## Europe server config
 First, setup an shadowsocks proxy on the european server. the easy way is to set it up with docker-compose. 
