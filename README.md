@@ -75,7 +75,7 @@ stream {
 }
 
 ```
-restart nginx for changes to be applied 
+restart nginx to changes be applied 
 ```bash
 $ sudo systemctl restart nginx
 ```
