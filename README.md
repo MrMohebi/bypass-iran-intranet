@@ -45,14 +45,17 @@ services:
 }
 
 ```
- then run composer ```docker-compose up -d```
+ then run composer 
+ ```bash
+ $ docker-compose up -d
+ ```
 
 
 ## Iran server
 install nginx:
 ```bash
-sudo apt update
-sudo apt install -y nginx 
+$ sudo apt update
+$ sudo apt install -y nginx 
 ```
 
 then edit nginx config file to redirect all incoming requests to european server.
@@ -73,7 +76,9 @@ stream {
 
 ```
 restart nginx for changes to be applied 
-```sudo systemctl restart nginx```
+```bash
+$ sudo systemctl restart nginx
+```
 
 
 And we are done!
@@ -87,3 +92,30 @@ create new proxy then set information base on [```config.json```](https://github
 
 ## Linux clients
 you can use ```ss-local``` find more on [its docs](https://github.com/shadowsocks/v2ray-plugin)
+
+
+
+# considerable issues:
+
+### equal downloading and uploading
+today I've heard data centers are measuring your upload and download. if thay be in same rage, detect your server as VPN so thay block it.
+to protect your server from bieng banned, you can regularly download dummy file and delete it. to achive this:
+
+- on your IRAN serve create file named ```dummydl.sh```
+``` bash
+$ cat > /root/dummydl.sh <<EOF
+#!/bin/bash
+wget -c "https://speed.hetzner.de/1GB.bin" -O /dev/null
+EOF
+```
+- set execution permission
+```bash
+$ chmod +x dl.sh
+```
+- add this shell file to cronjobs
+```bash
+$ crontab -e
+```
+and append this line at the end of file
+
+```0 */6 * * * sh /root/dummydl.sh```
