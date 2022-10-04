@@ -85,5 +85,5 @@ for android devices we need these two app:
 create new proxy then set information base on [```config.json```](https://github.com/MrMohebi/bypass-iran-intranet#configjson) file JUST remmeber put iran ip for IP section in our example it's 103.130.0.10. also set plugin as v2ray
 
 
-## Linux
+## Linux clients
 you can use ```ss-local``` find more on [its docs](https://github.com/shadowsocks/v2ray-plugin)
