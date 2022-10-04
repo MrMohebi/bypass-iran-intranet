@@ -110,7 +110,7 @@ EOF
 ```
 - set execution permission
 ```bash
-$ chmod +x dl.sh
+$ chmod +x dummydl.sh
 ```
 - add this shell file to cronjobs
 ```bash
