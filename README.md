@@ -82,7 +82,7 @@ for android devices we need these two app:
 - [V2ray Plugin](https://play.google.com/store/apps/details?id=com.github.shadowsocks.plugin.v2ray)
 - [Shadowsocks](https://play.google.com/store/apps/details?id=com.github.shadowsocks)
 
-create new proxy then set information base on ```config.json``` file JUST remmeber put iran ip for IP section in our example it's 103.130.0.10. also set plugin as v2ray
+create new proxy then set information base on [```config.json```](https://github.com/MrMohebi/bypass-iran-intranet#configjson) file JUST remmeber put iran ip for IP section in our example it's 103.130.0.10. also set plugin as v2ray
 
 
 ## Linux
