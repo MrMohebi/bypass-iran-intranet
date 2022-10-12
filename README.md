@@ -18,7 +18,7 @@ v2ray plugin should be enabled to protect proxy to be banned by protocol.
 
 To installing docker and docker compose on your server, use this instruction [install docker](https://docs.docker.com/engine/install/ubuntu/).
 
-after installation. create directory that contains these two files([docker-compose.yml](#docker-composeyml) and [config.json](#/root/shadow/configjson))
+after installation. create directory that contains these two files([docker-compose.yml](#rootshadowdocker-composeyml) and [config.json](#rootshadowconfigjson))
 
 #### ```/root/shadow/docker-compose.yml```
 ```
@@ -104,7 +104,7 @@ for android devices we need these two app:
 - [V2ray Plugin](https://play.google.com/store/apps/details?id=com.github.shadowsocks.plugin.v2ray)
 - [Shadowsocks](https://play.google.com/store/apps/details?id=com.github.shadowsocks)
 
-create new proxy then set "Remote Port, Password, Encrypt Method(in this example 'aes-256-gcm')" base on [```config.json```](https://github.com/MrMohebi/bypass-iran-intranet#configjson) file JUST remmeber put Iran ip for **Server** section in our example it's 103.130.0.10. also at bottom of page set plugin as v2ray
+create new proxy then set "Remote Port, Password, Encrypt Method(in this example 'aes-256-gcm')" base on [```config.json```](#rootshadowconfigjson) file JUST remmeber put Iran ip for **Server** section in our example it's 103.130.0.10. also at bottom of page set plugin as v2ray
 
 
 ### Linux clients
