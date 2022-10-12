@@ -3,7 +3,8 @@ setup Proxy chains to bypass internet blockade in iran
 
 
 
-you need two servers one in an Iranian data center and one outside (preferably Europe because of latency).
+you need two servers one in an Iranian data center and one outside (preferably Europe because of latency). Use cloud servers, thay are 
+cheap and also easy to use. Order the less config is possible. even 1 core of cpu and 512M of ram are completely enough.
 
 we consider iran server IP is: ```103.130.0.10```
 
@@ -13,9 +14,13 @@ also iran and europe both ports is: ```2424```
 
 ## Europe server config
 First, setup an shadowsocks proxy on the european server. the easy way is to set it up with docker-compose. 
-v2ray plugin should be enabled to protect proxy to be banned by protocol
+v2ray plugin should be enabled to protect proxy to be banned by protocol.
 
-#### ```docker-compose.yml```
+To installing docker and docker compose on your server, use this instruction [install docker](https://docs.docker.com/engine/install/ubuntu/).
+
+after installation. create directory that contains these two files([docker-compose.yml](#docker-composeyml) and [config.json](#/root/shadow/configjson))
+
+#### ```/root/shadow/docker-compose.yml```
 ```
 version: '3.0'
 services:
@@ -30,7 +35,7 @@ services:
       - ./config.json:/etc/shadowsocks-libev/config.json
 ```
 
-#### ```config.json```
+#### ```/root/shadow/config.json```
 ```
 {
     "server":"0.0.0.0",
@@ -43,15 +48,20 @@ services:
     "plugin":"v2ray-plugin",
     "plugin_opts":"server"
 }
-
 ```
+Change password as you wish. other config settings can be changed or stay as thay are.
+
+
  then run composer 
  ```bash
- $ docker-compose up -d
+ $ docker compose up -d
  ```
 
 
 ## Iran server
+Due to sanctions you can't install docker easily in iranian servers. so instead of dockerizing nginx, we just install it as old fashion. As I've heard some people had nginx problems with Arvancloud servers. I think its because Arvan uses its own mirror ubuntu repositories instead of orginal one. just consider you may have problem with Arvan servers   
+
+
 install nginx:
 ```bash
 $ sudo apt update
@@ -60,37 +70,44 @@ $ sudo apt install -y nginx
 
 then edit nginx config file to redirect all incoming requests to european server.
 
-add this block above of ```http``` block
+change IP to your european server ip and run this command
 
-#### ```/etc/nginx/nginx.conf```
-```
+``` bash
+$ sudo cat >> /etc/nginx/nginx.conf <<EOF
+
 stream {
     server {
         # iran PORT
         listen     2424;
         # europe IP:PORT
-        proxy_pass 102.128.0.20:2424;
+        proxy_pass IP:2424;
     }
 
 }
-
+EOF
 ```
+
 restart nginx to changes be applied 
 ```bash
 $ sudo systemctl restart nginx
 ```
 
 
-And we are done!
-## Android clints:
+And we are done! enjoy freedom :)
+
+To connect to this proxy use [below instructions](#config-clients)
+
+## config clients
+
+### Android clints:
 for android devices we need these two app:
 - [V2ray Plugin](https://play.google.com/store/apps/details?id=com.github.shadowsocks.plugin.v2ray)
 - [Shadowsocks](https://play.google.com/store/apps/details?id=com.github.shadowsocks)
 
-create new proxy then set information base on [```config.json```](https://github.com/MrMohebi/bypass-iran-intranet#configjson) file JUST remmeber put iran ip for IP section in our example it's 103.130.0.10. also set plugin as v2ray
+create new proxy then set "Remote Port, Password, Encrypt Method(in this example 'aes-256-gcm')" base on [```config.json```](https://github.com/MrMohebi/bypass-iran-intranet#configjson) file JUST remmeber put Iran ip for **Server** section in our example it's 103.130.0.10. also at bottom of page set plugin as v2ray
 
 
-## Linux clients
+### Linux clients
 you can use ```ss-local``` find more on [its docs](https://github.com/shadowsocks/v2ray-plugin)
 
 
@@ -119,3 +136,8 @@ $ crontab -e
 and append this line at the end of file
 
 ```0 */6 * * * sh /root/dummydl.sh```
+
+# pro tips
+
+### half traffic calculation:
+put your Iran server behind Arvan DNS, then when you use proxy, traffic usage will be calculated in half :)
