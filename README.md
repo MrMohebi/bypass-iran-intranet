@@ -52,8 +52,9 @@ services:
 Change password as you wish. other config settings can be changed or stay as thay are.
 
 
- then run composer 
+ then go to your dirctory and run composer up(in our example)
  ```bash
+ $ cd /root/shadow/
  $ docker compose up -d
  ```
 
