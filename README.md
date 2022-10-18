@@ -115,6 +115,15 @@ create new proxy then set "Remote Port, Password, Encrypt Method(in this example
 ### Linux clients
 you can use ```ss-local``` find more on [its docs](https://github.com/shadowsocks/v2ray-plugin)
 
+### Windows clients
+Download :
+- [windows-v2ray-plugin](https://github.com/shadowsocks/v2ray-plugin/releases)
+- [windows-shadowsocks](https://github.com/shadowsocks/shadowsocks-windows/releases)
+
+then
+- set server data as mentioned [here](#android-clints)
+- put v2ray-plugin in shadowsocks folder and set ```Plugin Program``` to ```./v2ray-plugin_windows_amd64.exe```
+- right click on shadowsocks tray icon and select ```System Proxy > Global```
 
 
 # considerable issues:
