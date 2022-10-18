@@ -1,8 +1,12 @@
 # bypass-iran-intranet
 setup Proxy chains to bypass internet blockade in iran
 
+## First method: One European server and One Domain address
+Config as I mentioned here: 
+https://github.com/MrMohebi/bypass-iran-intranet/issues/2#issuecomment-1282108684
 
 
+## Second method: Two servers
 you need two servers one in an Iranian data center and one outside (preferably Europe because of latency). Use cloud servers, thay are 
 cheap and also easy to use. Order the less config is possible. even 1 core of cpu and 512M of ram are completely enough.
 
