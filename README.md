@@ -129,6 +129,8 @@ then
 # considerable issues:
 
 ### equal downloading and uploading
+UPDATE: use this ripo to address this issue -> [NAMIZUN](https://github.com/malkemit/namizun)
+
 today I've heard data centers are measuring your upload and download. if thay be in same rage, detect your server as VPN so thay block it.
 to protect your server from bieng banned, you can regularly download dummy file and delete it. to achive this:
 
